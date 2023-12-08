@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "I:\\Work\\C#Repos\\VectorSearch\\VectorSearch\\VectorSearch\\VectorSearch.csproj": {}
+    "I:\\Work\\C#Repos\\Vector_Search\\VectorSearch\\VectorSearch.csproj": {}
   },
   "projects": {
-    "I:\\Work\\C#Repos\\VectorSearch\\VectorSearch\\VectorSearch\\VectorSearch.csproj": {
+    "I:\\Work\\C#Repos\\Vector_Search\\VectorSearch\\VectorSearch.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "I:\\Work\\C#Repos\\VectorSearch\\VectorSearch\\VectorSearch\\VectorSearch.csproj",
+        "projectUniqueName": "I:\\Work\\C#Repos\\Vector_Search\\VectorSearch\\VectorSearch.csproj",
         "projectName": "VectorSearch",
-        "projectPath": "I:\\Work\\C#Repos\\VectorSearch\\VectorSearch\\VectorSearch\\VectorSearch.csproj",
+        "projectPath": "I:\\Work\\C#Repos\\Vector_Search\\VectorSearch\\VectorSearch.csproj",
         "packagesPath": "C:\\Users\\micha\\.nuget\\packages\\",
-        "outputPath": "I:\\Work\\C#Repos\\VectorSearch\\VectorSearch\\VectorSearch\\obj\\",
+        "outputPath": "I:\\Work\\C#Repos\\Vector_Search\\VectorSearch\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Users\\micha\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder",

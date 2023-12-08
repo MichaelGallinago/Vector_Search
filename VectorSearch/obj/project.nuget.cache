@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nTMJnSDY7cWdKPlbuMR1zGmm+uZXRJtI+7uqmpvz1NzMOckS9neAQoGjMXCl3j1EAJ8v8Au6JNr1nX6G3ngypw==",
+  "dgSpecHash": "R31JB5sZH44m07ohRDxCCvw7Rrt2JXiHoInUoJgiajZ2S3cc/8yCV39XW72qM91+7/DKFg7KytZyhV7ZpejBDQ==",
   "success": true,
-  "projectFilePath": "I:\\Work\\C#Repos\\VectorSearch\\VectorSearch\\VectorSearch\\VectorSearch.csproj",
+  "projectFilePath": "I:\\Work\\C#Repos\\Vector_Search\\VectorSearch\\VectorSearch.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

@@ -2,10 +2,11 @@
 
 public static class RadixSort 
 {
-    private const double Tolerance = 0.000001d;
-    public static void Sort(List<IReadOnlyList<double>> arrays) 
+    private const double Tolerance = 1E-9;
+    public static void Sort(List<IReadOnlyList<double>> arrays)
     {
         if (arrays.Count <= 1) return;
+        
         int maxLength = GetMaxLength(arrays);
         var buckets = new CustomPriorityQueue<(IReadOnlyList<double>, double)>();
         
@@ -23,7 +24,6 @@ public static class RadixSort
                     continue;
                 }
                 
-                Console.WriteLine(fromIndex + ":" + toIndex);
                 for (int j = fromIndex; j < toIndex; j++)
                 {
                     IReadOnlyList<double> array = arrays[j];
@@ -33,18 +33,18 @@ public static class RadixSort
             
                 (arrays[fromIndex], double lastPriority) = buckets.Dequeue();
                 
-                for (int j = fromIndex + 1; j < toIndex; j++)
+                for (fromIndex++; fromIndex < toIndex; fromIndex++)
                 {
-                    (arrays[j], double priority) = buckets.Dequeue();
+                    (arrays[fromIndex], double priority) = buckets.Dequeue();
                     
                     if (Math.Abs(priority - lastPriority) > Tolerance)
                     {
-                        savedGroups.Enqueue(j);
+                        savedGroups.Enqueue(fromIndex);
                     }
 
                     lastPriority = priority;
                 }
-                fromIndex = toIndex;
+                fromIndex++;
             }
 
             while (savedGroups.Count > 0)
