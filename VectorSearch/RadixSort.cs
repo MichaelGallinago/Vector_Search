@@ -27,8 +27,8 @@ public static class RadixSort
         {
             double nextValue = _arrays[currentIndex][exp];
             if (Math.Abs(groupValue - nextValue) <= Tolerance) continue;
-            SortRange(fromIndex, currentIndex - 1, exp);
-            SortExp(exp + 1, fromIndex, currentIndex);
+            SortRange(fromIndex, currentIndex, exp);
+            SortExp(exp + 1, fromIndex, currentIndex + 1);
             fromIndex = currentIndex;
             groupValue = nextValue;
         }
