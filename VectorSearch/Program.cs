@@ -13,23 +13,28 @@ internal static class Program
     
     private static void Main()
     {
+        //TestSort();
+        TestTime();
+    }
 
-        _vectors = //GenerateDataSet(4, MaxLength);
-        [
-            [1, 1, 7, 8],
-            [3, 7, 5, 3],
-            [3, 6, 1, 1],
-            [0, 5, 7, 5]
-        ];
-        Print(_vectors);
-        CheckElapsedTime(() => RadixSort.Sort(_vectors, MaxLength));
-        Print(_vectors);
-
-        //List<IReadOnlyList<double>> list1 = _vectors.ToList();
-        //CheckElapsedTime(() => RadixSort.Sort(list1, MaxLength));
+    private static void TestSort()
+    {
+        _vectors = GenerateDataSet(4, MaxLength);
         
-        //List<IReadOnlyList<double>> list2 = _vectors.ToList();
-        //CheckElapsedTime(() => QuickSort.Sort(list2));
+        Print(_vectors);
+        RadixSort.Sort(_vectors, MaxLength);
+        Print(_vectors);
+    }
+
+    private static void TestTime()
+    {
+        _vectors = GenerateDataSet(4096, MaxLength);
+        
+        List<IReadOnlyList<double>> list1 = _vectors.ToList();
+        CheckElapsedTime(() => RadixSort.Sort(list1, MaxLength));
+        
+        List<IReadOnlyList<double>> list2 = _vectors.ToList();
+        CheckElapsedTime(() => QuickSort.Sort(list2));
     }
 
     private static void CheckElapsedTime(Action action)
