@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("VectorSearch")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d3e1af478efc49735ed47aa2bc02b2604552e09c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+700e833e437299e857a2f5aee3ea2f4f8d06e31f")]
 [assembly: System.Reflection.AssemblyProductAttribute("VectorSearch")]
 [assembly: System.Reflection.AssemblyTitleAttribute("VectorSearch")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -3,59 +3,73 @@
 public static class RadixSort 
 {
     private const double Tolerance = 1E-9;
-    public static void Sort(List<IReadOnlyList<double>> arrays)
+    private static List<IReadOnlyList<double>> _arrays = null!;
+    private static int _maxLength;
+    
+    public static void Sort(List<IReadOnlyList<double>> arrays, int maxLength)
     {
-        if (arrays.Count <= 1) return;
-        
-        int maxLength = GetMaxLength(arrays);
-        var buckets = new CustomPriorityQueue<(IReadOnlyList<double>, double)>();
-        
-        SortedSet<int> groups = [arrays.Count];
-        Queue<int> savedGroups = [];
-        
-        for (var exp = 0; exp < maxLength; exp++)
-        {
-            var fromIndex = 0;
-            foreach (int toIndex in groups)
-            {
-                if (toIndex - fromIndex <= 1)
-                {
-                    fromIndex = toIndex;
-                    continue;
-                }
-                
-                for (int j = fromIndex; j < toIndex; j++)
-                {
-                    IReadOnlyList<double> array = arrays[j];
-                    double priority = exp >= array.Count ? 0 : array[exp];  
-                    buckets.Enqueue((array, priority), priority);
-                }
-            
-                (arrays[fromIndex], double lastPriority) = buckets.Dequeue();
-                
-                for (fromIndex++; fromIndex < toIndex; fromIndex++)
-                {
-                    (arrays[fromIndex], double priority) = buckets.Dequeue();
-                    
-                    if (Math.Abs(priority - lastPriority) > Tolerance)
-                    {
-                        savedGroups.Enqueue(fromIndex);
-                    }
+        if (maxLength <= 0 || arrays.Count <= 1) return;
 
-                    lastPriority = priority;
-                }
-                fromIndex++;
-            }
-
-            while (savedGroups.Count > 0)
-            {
-                groups.Add(savedGroups.Dequeue());
-            }
-        }
+        _arrays = arrays;
+        _maxLength = maxLength;
+        
+        SortRange(0, arrays.Count - 1, 0);
+        if (maxLength <= 1) return;
+        SortExp(0, 0, arrays.Count);
     }
 
-    private static int GetMaxLength(List<IReadOnlyList<double>> arrays)
+    private static void SortExp(int exp, int fromIndex, int toIndex)
     {
-        return arrays.Select(array => array.Count).Prepend(0).Max();
+        if (exp == _maxLength) return;
+        double groupValue = _arrays[fromIndex][exp];
+        int currentIndex = fromIndex + 1;
+        for (; currentIndex < toIndex; currentIndex++)
+        {
+            double nextValue = _arrays[currentIndex][exp];
+            if (Math.Abs(groupValue - nextValue) <= Tolerance) continue;
+            SortRange(fromIndex, currentIndex - 1, exp);
+            SortExp(exp + 1, fromIndex, currentIndex);
+            fromIndex = currentIndex;
+            groupValue = nextValue;
+        }
+            
+        if (--currentIndex == fromIndex) return;
+        SortRange(fromIndex, currentIndex, exp);
+    }
+
+    private static void SortRange(int leftIndex, int rightIndex, int exp)
+    {
+        while (true)
+        {
+            int i = leftIndex;
+            int j = rightIndex;
+            IReadOnlyList<double> pivot = _arrays[leftIndex];
+            while (i <= j)
+            {
+                while (_arrays[i][exp] < pivot[exp])
+                {
+                    i++;
+                }
+
+                while (_arrays[j][exp] > pivot[exp])
+                {
+                    j--;
+                }
+
+                if (i > j) continue;
+                (_arrays[i], _arrays[j]) = (_arrays[j], _arrays[i]);
+                i++;
+                j--;
+            }
+
+            if (leftIndex < j) SortRange(leftIndex, j, exp);
+            if (i < rightIndex)
+            {
+                leftIndex = i;
+                continue;
+            }
+
+            break;
+        }
     }
 }

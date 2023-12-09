@@ -8,26 +8,23 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\micha\\.nuget\\packages\\": {},
-    "C:\\Users\\micha\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder": {},
-    "I:\\Work\\MVSObshee\\NuGetPackages": {}
+    "C:\\Users\\MicG\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "I:\\Work\\C#Repos\\Vector_Search\\VectorSearch\\VectorSearch.csproj",
+      "projectUniqueName": "F:\\Work\\Algos\\Vector_Search\\VectorSearch\\VectorSearch.csproj",
       "projectName": "VectorSearch",
-      "projectPath": "I:\\Work\\C#Repos\\Vector_Search\\VectorSearch\\VectorSearch.csproj",
-      "packagesPath": "C:\\Users\\micha\\.nuget\\packages\\",
-      "outputPath": "I:\\Work\\C#Repos\\Vector_Search\\VectorSearch\\obj\\",
+      "projectPath": "F:\\Work\\Algos\\Vector_Search\\VectorSearch\\VectorSearch.csproj",
+      "packagesPath": "C:\\Users\\MicG\\.nuget\\packages\\",
+      "outputPath": "F:\\Work\\Algos\\Vector_Search\\VectorSearch\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Users\\micha\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder",
-        "I:\\Work\\MVSObshee\\NuGetPackages"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\micha\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Users\\micha\\AppData\\Roaming\\NuGet\\config\\Godot.Offline.Config",
+        "C:\\Users\\MicG\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -37,7 +34,6 @@
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "C:\\Program Files\\dotnet\\library-packs": {},
-        "C:\\Users\\micha\\AppData\\Roaming\\NuGet\\~\\GodotNugetSource": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

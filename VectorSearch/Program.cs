@@ -5,17 +5,21 @@ namespace VectorSearch;
 
 internal static class Program
 {
+    private const byte MaxLength = 16;
+    
     private static readonly Stopwatch Stopwatch = new();
     
     private static List<IReadOnlyList<double>> _vectors = [];
     
     private static void Main()
     {
-        _vectors = GenerateDataSet(4, 4);
-            
-        Print(_vectors);
-        CheckElapsedTime(() => QuickSort.Sort(_vectors));
-        Print(_vectors);
+        _vectors = GenerateDataSet(4096, MaxLength);
+
+        List<IReadOnlyList<double>> list1 = _vectors.ToList();
+        CheckElapsedTime(() => RadixSort.Sort(list1, MaxLength));
+        
+        List<IReadOnlyList<double>> list2 = _vectors.ToList();
+        CheckElapsedTime(() => QuickSort.Sort(list2));
     }
 
     private static void CheckElapsedTime(Action action)
