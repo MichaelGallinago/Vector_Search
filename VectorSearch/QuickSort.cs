@@ -11,12 +11,12 @@ public static class QuickSort
             IReadOnlyList<double> pivot = arrays[leftIndex];
             while (i <= j)
             {
-                while (VectorUtilities.GetDifference(arrays[i], pivot) < 0)
+                while (VectorUtilities.GetDifferenceSign(arrays[i], pivot) < 0)
                 {
                     i++;
                 }
 
-                while (VectorUtilities.GetDifference(arrays[j], pivot) > 0)
+                while (VectorUtilities.GetDifferenceSign(arrays[j], pivot) > 0)
                 {
                     j--;
                 }

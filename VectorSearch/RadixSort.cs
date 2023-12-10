@@ -20,24 +20,29 @@ public static class RadixSort
 
     private static void SortExp(int exp, int fromIndex, int toIndex)
     {
-        if (exp >= _maxLength - 1) return;
-        double groupValue = _arrays[fromIndex][exp];
-        int currentIndex = fromIndex + 1;
-        for (; currentIndex < toIndex; currentIndex++)
+        while (true)
         {
-            double nextValue = _arrays[currentIndex][exp];
-            if (Math.Abs(groupValue - nextValue) <= Tolerance) continue;
-            if (currentIndex - fromIndex > 1)
+            if (exp >= _maxLength - 1) return;
+            double groupValue = _arrays[fromIndex][exp];
+            int currentIndex = fromIndex + 1;
+            for (; currentIndex < toIndex; currentIndex++)
             {
-                SortRange(fromIndex, currentIndex - 1, exp + 1);
-                SortExp(exp + 1, fromIndex, currentIndex);
+                double nextValue = _arrays[currentIndex][exp];
+                if (Math.Abs(groupValue - nextValue) <= Tolerance) continue;
+                if (currentIndex - fromIndex > 1)
+                {
+                    SortRange(fromIndex, currentIndex - 1, exp + 1);
+                    SortExp(exp + 1, fromIndex, currentIndex);
+                }
+
+                fromIndex = currentIndex;
+                groupValue = nextValue;
             }
-            fromIndex = currentIndex;
-            groupValue = nextValue;
+
+            if (--currentIndex == fromIndex) return;
+            SortRange(fromIndex, currentIndex, ++exp);
+            toIndex = currentIndex + 1;
         }
-            
-        if (--currentIndex == fromIndex) return;
-        SortRange(fromIndex, currentIndex, exp + 1);
     }
 
     private static void SortRange(int leftIndex, int rightIndex, int exp)
